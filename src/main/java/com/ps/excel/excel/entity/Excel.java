@@ -1,5 +1,6 @@
 package com.ps.excel.excel.entity;
 
+import com.ps.excel.excel.JobStatus;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -7,7 +8,8 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "excel")
-@Builder
+@Builder(toBuilder = true)
+@Getter
 public class Excel {
 
     @Id
@@ -20,7 +22,8 @@ public class Excel {
 
     private LocalDateTime finished_at;
 
-    private String status;
+    @Enumerated(EnumType.STRING)
+    private JobStatus status;
 
     private String filepath;
 
