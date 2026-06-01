@@ -36,6 +36,7 @@ dependencies {
     implementation 'org.apache.poi:poi-ooxml:5.5.1'
     implementation 'org.apache.poi:poi-ooxml-lite:5.5.1'
     implementation 'com.h2database:h2'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 }
 
 tasks.named('test') {
