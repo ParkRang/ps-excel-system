@@ -42,7 +42,7 @@ public class ExcelService {
     }
 
     public List<ExcelResponse> getExcels(){
-        return excelRepository.findAll().stream().map(excel -> new ExcelResponse(
+        return excelRepository.findAllByOrderByIdDesc().stream().map(excel -> new ExcelResponse(
                 excel.getId(),
                 excel.getStatus(),
                 excel.getRequestedAt(),
