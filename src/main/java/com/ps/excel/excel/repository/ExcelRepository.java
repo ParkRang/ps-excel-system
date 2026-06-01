@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public interface ExcelRepository extends JpaRepository<Excel,Integer> {
 
-    List<Excel> findAll();
+    List<Excel> findAllByOrderByIdDesc();
 
 
 }
