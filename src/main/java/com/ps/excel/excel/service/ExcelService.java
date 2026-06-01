@@ -13,23 +13,32 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
-@Transactional
+//@Transactional
 @RequiredArgsConstructor
 public class ExcelService {
-    private final ExcelRepository excelRepository;
 
-    public CreateExcelResponse createExcel(){
+    private final ExcelRepository excelRepository;
+    private final ExcelGenerationService excelGenerationService;
+
+    // TODO : createExcel + generateExcel 연결
+    public ExcelResponse createExcel(){
         Excel excel = Excel.builder()
                 .status(JobStatus.PENDING)
                 .requestedAt(LocalDateTime.now())
                 .build();
 
-        Excel savedExcel = excelRepository.save(excel);
-
-        return new CreateExcelResponse(
-                savedExcel.getId(),
-                savedExcel.getStatus()
+        Excel savedExcel = excelRepository.saveAndFlush(excel);
+        excelGenerationService.generateExcel(
+                savedExcel.getId()
         );
+
+        return ExcelResponse.builder()
+                .id(savedExcel.getId())
+                .status(savedExcel.getStatus())
+                .requestedAt(savedExcel.getRequestedAt())
+                .startedAt(savedExcel.getStartedAt())
+                .finishedAt(savedExcel.getFinishedAt())
+                .build();
     }
 
     public List<ExcelResponse> getExcels(){
