@@ -12,16 +12,22 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String user_name;
+    @Column(name = "user_name")
+    private String userName;
 
-    private String product_name;
+    @Column(name = "product_name")
+    private String productName;
 
+    @Column(name = "category")
     private String category;
 
+    @Column(name = "amount")
     private Integer amount;
 
+    @Column(name = "status")
     private String status;
 
-    private LocalDateTime order_date;
+    @Column(name = "order_date")
+    private LocalDateTime orderDate;
 
 }
