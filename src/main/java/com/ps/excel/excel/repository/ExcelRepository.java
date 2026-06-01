@@ -10,8 +10,6 @@ import java.util.List;
 public interface ExcelRepository extends JpaRepository<Excel,Integer> {
 
     List<Excel> findAll();
-    List<Excel> findAllById(Integer id);
 
-    Excel save(List<Excel> excel);
 
 }
