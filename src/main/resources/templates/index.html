@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Excel Job Manager</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        table {
+            margin-top: 20px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #f3f3f3;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Excel 생성 시스템</h1>
+
+<button onclick="createExcel()">
+    엑셀 생성
+</button>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>상태</th>
+        <th>요청 시간</th>
+        <th>시작 시간</th>
+        <th>종료 시간</th>
+        <th>파일 경로</th>
+    </tr>
+    </thead>
+
+    <tbody id="excelTableBody">
+    </tbody>
+</table>
+
+<script src="/js/app.js"></script>
+
+</body>
+</html>
