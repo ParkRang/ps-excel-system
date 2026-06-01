@@ -20,7 +20,7 @@ public class ExcelService {
     private final ExcelRepository excelRepository;
     private final ExcelGenerationService excelGenerationService;
 
-    // TODO : createExcel + generateExcel 연결
+    // createExcel + generateExcel 연결
     public ExcelResponse createExcel(){
         Excel excel = Excel.builder()
                 .status(JobStatus.PENDING)
