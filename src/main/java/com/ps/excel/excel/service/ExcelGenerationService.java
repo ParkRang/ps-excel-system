@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 import java.io.FileOutputStream;
@@ -19,7 +20,6 @@ import java.nio.file.Paths;
 import java.util.List;
 
 @Service
-@Transactional
 @RequiredArgsConstructor
 public class ExcelGenerationService {
 
@@ -27,15 +27,17 @@ public class ExcelGenerationService {
     private final OrderRepository orderRepository;
 
     // 엑셀 작업 관리
+    @Async("excelExecutor")
     public void generateExcel(int excelId){
-        Excel excel = excelRepository.findById(excelId).orElseThrow(() -> new IllegalArgumentException("존재하지 않는 작업입니다."));
 
-
+        Excel excel = null;
 
         try {
+            excel = excelRepository.findById(excelId).orElseThrow(() -> new IllegalArgumentException("존재하지 않는 작업입니다."));
 
             // 작업 start
             excel.start();
+            excelRepository.saveAndFlush(excel);
 
             // 데이터 조회
             List<Order> orders = orderRepository.findAll();
@@ -43,10 +45,15 @@ public class ExcelGenerationService {
             // 생성 완료
             String filePath = createExcelFile(excelId, orders);
             excel.finish(filePath);
+            excelRepository.saveAndFlush(excel);
 
         } catch (Exception e) {
-            excel.fail();
-            throw new RuntimeException(e);
+            if(excel != null){
+                excel.fail();
+                excelRepository.saveAndFlush(excel);
+
+            }
+
         }
     }
 
@@ -91,8 +98,6 @@ public class ExcelGenerationService {
             // TODO : C가 아닌 Docker 내부 경로로 저장
             Path dir = Paths.get("files");
             Files.createDirectories(dir);
-
-//            String filepath = "excel_" + excelId + ".xlsx";
 
             Path filePath = dir.resolve(
                     "excel_" + excelId + ".xlsx"
