@@ -1,11 +1,13 @@
 package com.ps.excel.order.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "orders")
+@Getter
 public class Order {
 
     @Id
