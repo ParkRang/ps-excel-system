@@ -32,6 +32,9 @@ dependencies {
 	testCompileOnly 'org.projectlombok:lombok'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	testAnnotationProcessor 'org.projectlombok:lombok'
+    implementation 'org.apache.poi:poi:5.5.1'
+    implementation 'org.apache.poi:poi-ooxml:5.5.1'
+    implementation 'org.apache.poi:poi-ooxml-lite:5.5.1'
     implementation 'com.h2database:h2'
 }
 
