@@ -19,7 +19,7 @@ public class ExcelResponse {
 
     private LocalDateTime startedAt;
 
-    private LocalDateTime completedAt;
+    private LocalDateTime finishedAt;
 
     private String filepath;
 
