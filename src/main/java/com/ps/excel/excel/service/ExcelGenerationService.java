@@ -53,7 +53,6 @@ public class ExcelGenerationService {
     // 엑셀 생성
     public String createExcelFile(int excelId, List<Order> orders) throws IOException {
 
-        // TODO : 100개, 이후 변경 필요
         SXSSFWorkbook workbook = new SXSSFWorkbook(100);
 
         try {
