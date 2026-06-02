@@ -13,14 +13,13 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
-//@Transactional
 @RequiredArgsConstructor
 public class ExcelService {
 
     private final ExcelRepository excelRepository;
     private final ExcelGenerationService excelGenerationService;
 
-    // createExcel + generateExcel 연결
+    // 엑셀을 DB에 생성하고 관리, 엑셀 생성 작업
     public ExcelResponse createExcel(){
         Excel excel = Excel.builder()
                 .status(JobStatus.PENDING)
@@ -41,6 +40,7 @@ public class ExcelService {
                 .build();
     }
 
+    // 엑셀 항목 가져오기
     public List<ExcelResponse> getExcels(){
         return excelRepository.findAllByOrderByIdDesc().stream().map(excel -> new ExcelResponse(
                 excel.getId(),
