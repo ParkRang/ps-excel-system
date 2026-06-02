@@ -51,9 +51,7 @@ public class ExcelGenerationService {
             if(excel != null){
                 excel.fail();
                 excelRepository.saveAndFlush(excel);
-
             }
-
         }
     }
 
@@ -63,7 +61,6 @@ public class ExcelGenerationService {
         SXSSFWorkbook workbook = new SXSSFWorkbook(100);
 
         try {
-
 
             Sheet sheet = workbook.createSheet("Orders");
 
