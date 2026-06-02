@@ -30,10 +30,6 @@ public class ExcelServiceTest {
     void 엑셀_생성_요청시_PENDING_상태로_저장된다(){
 
         // given
-        Excel savedExcel = Excel.builder()
-                .status(JobStatus.PENDING)
-                .requestedAt(LocalDateTime.now())
-                .build();
 
         // when
         ExcelResponse excelResponse = excelService.createExcel();
