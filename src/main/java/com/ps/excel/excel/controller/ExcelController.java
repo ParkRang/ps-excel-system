@@ -28,12 +28,5 @@ public class ExcelController {
         return excelService.getExcels();
     }
 
-    // 테스트
-    @PostMapping("/{id}/generate")
-    public ResponseEntity<String> generateExcel(@PathVariable int id){
-        excelGenerationService.generateExcel(id);
-
-        return ResponseEntity.ok("생성 요청 완료");
-    }
 
 }
