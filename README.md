@@ -65,7 +65,25 @@ HTML + JavaScript
 -----
 
 ## 3. 시스템 구조
-[사용자] -> POST /api/excel -> ExcelService -> ExcelGenerationService (@Async) -> Excel 생성 -> 상태 변경 및 정보 제공
+사용자
+ ↓
+POST /api/excel
+ ↓
+ExcelService
+ ↓
+DB 저장 (PENDING)
+ ↓
+즉시 응답
+
+====================
+
+ExcelGenerationService (@Async)
+ ↓
+PROCESSING
+ ↓
+Excel 생성
+ ↓
+DONE
 
 ------
 ## 4. 실행 방법
@@ -82,9 +100,25 @@ HTML + JavaScript
 
 엑셀 생성
 POST /api/excel
+  {
+    "id": 5,
+    "status": "PENDING",
+    "requestedAt": "2026-06-03T08:47:05.567825602",
+    "startedAt": null,
+    "finishedAt": null,
+    "filepath": null
+  }
 
 작업 조회
 GET /api/excel
+  {
+        "id": 4,
+        "status": "DONE",
+        "requestedAt": "2026-06-03T08:42:05.693738",
+        "startedAt": "2026-06-03T08:42:16.887438",
+        "finishedAt": "2026-06-03T08:42:23.61288",
+        "filepath": "files/excel_4.xlsx"
+    }
 
 ------
 
