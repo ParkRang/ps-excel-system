@@ -19,6 +19,10 @@
 
 ## 2. 기술 스택
 
+<p>
+  <img src="https://skillicons.dev/icons?i=java,springboot,postgres,docker,html,js" />
+</p>
+
 ### Backend
 
 * Java 24
