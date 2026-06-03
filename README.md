@@ -104,10 +104,10 @@ DONE
 
 1. 프로젝트 클론
 2. env 파일 설정
-3. Docker 실행
+3. Docker 실행  
    Docker Compose up --build
-4. 접속
-   http://localhost:8080
+4. http://localhost:8080으로 접속
+   
 
 -----
 ## 5. API
