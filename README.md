@@ -116,12 +116,12 @@ DONE
 POST /api/excel
 
   {  
-    "id": 5,
-    "status": "PENDING",
-    "requestedAt": "2026-06-03T08:47:05.567825602",
-    "startedAt": null,    
-    "finishedAt": null,    
-    "filepath": null    
+      "id": 5,  
+      "status": "PENDING",  
+      "requestedAt": "2026-06-03T08:47:05.567825602",  
+      "startedAt": null,      
+      "finishedAt": null,    
+      "filepath": null    
   }
 
 작업 조회
