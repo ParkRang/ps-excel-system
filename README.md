@@ -66,23 +66,37 @@ HTML + JavaScript
 
 ## 3. 시스템 구조
 사용자
+
  ↓
+ 
 POST /api/excel
+
  ↓
+ 
 ExcelService
+
  ↓
+ 
 DB 저장 (PENDING)
+
  ↓
+ 
 즉시 응답
 
 ====================
 
 ExcelGenerationService (@Async)
+
  ↓
+ 
 PROCESSING
+
  ↓
+ 
 Excel 생성
+
  ↓
+ 
 DONE
 
 ------
