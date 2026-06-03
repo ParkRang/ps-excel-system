@@ -164,11 +164,12 @@ GET /api/excel
 
 -----
 ## 8. 기록
-설계 과정 메모
-![define](docs/define.jpg)
 
-동작 화면
+동작 화면  
 ![demo](docs/demo.gif)
+
+설계 과정 메모  
+![define](docs/define.jpg)
 
   
 
