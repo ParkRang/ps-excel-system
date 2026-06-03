@@ -1,11 +1,15 @@
-# 1. JDK 24 기반 이미지 사용
-FROM eclipse-temurin:24-jdk
+FROM gradle:8.14.3-jdk24 AS builder
 
-# 2. 작업 디렉토리 설정
 WORKDIR /app
 
-# 3. 빌드된 JAR 복사
-COPY build/libs/ps-excel-system-0.0.1-SNAPSHOT.jar backend.jar
+COPY . .
 
-# 4. 컨테이너 실행 시 JAR 실행
+RUN gradle bootJar --no-daemon
+
+FROM eclipse-temurin:24-jre
+
+WORKDIR /app
+
+COPY --from=builder /app/build/libs/*.jar backend.jar
+
 ENTRYPOINT ["java", "-jar", "backend.jar"]
