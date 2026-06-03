@@ -106,7 +106,7 @@ GET /api/excel
 -----
 ## 8. 기록
 정리
-![define](docs/define.png)
+![define](docs/define.jpg)
 
 동작 화면
 ![demo](docs/demo.gif)
