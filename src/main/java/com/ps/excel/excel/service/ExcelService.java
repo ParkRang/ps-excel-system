@@ -1,11 +1,9 @@
 package com.ps.excel.excel.service;
 
 import com.ps.excel.excel.JobStatus;
-import com.ps.excel.excel.dto.CreateExcelResponse;
 import com.ps.excel.excel.dto.ExcelResponse;
 import com.ps.excel.excel.entity.Excel;
 import com.ps.excel.excel.repository.ExcelRepository;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +25,7 @@ public class ExcelService {
                 .build();
 
         Excel savedExcel = excelRepository.saveAndFlush(excel);
-        excelGenerationService.generateExcel(
+        excelGenerationService.excelJob(
                 savedExcel.getId()
         );
 
