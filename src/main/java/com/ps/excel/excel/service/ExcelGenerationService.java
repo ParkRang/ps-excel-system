@@ -4,7 +4,6 @@ import com.ps.excel.excel.entity.Excel;
 import com.ps.excel.excel.repository.ExcelRepository;
 import com.ps.excel.order.entity.Order;
 import com.ps.excel.order.repository.OrderRepository;
-import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -28,7 +27,7 @@ public class ExcelGenerationService {
 
     // 엑셀 작업 관리
     @Async("excelExecutor")
-    public void generateExcel(int excelId){
+    public void excelJob(int excelId){
 
         Excel excel = null;
 
