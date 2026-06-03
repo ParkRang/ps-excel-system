@@ -106,7 +106,7 @@ DONE
 2. env 파일 설정
 3. Docker 실행  
    Docker Compose up --build
-4. http://localhost:8080으로 접속
+4. http://localhost:8080 접속
    
 
 -----
