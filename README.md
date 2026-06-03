@@ -105,7 +105,7 @@ GET /api/excel
 
 -----
 ## 8. 기록
-정리
+설계 과정 메모
 ![define](docs/define.jpg)
 
 동작 화면
